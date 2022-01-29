@@ -1,0 +1,362 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+.row{
+  display: inline-flex;
+  align-items: center;
+  background-color: #FFFFEA;
+}
+
+body {
+  /* Background pattern from Subtle Patterns */
+    /*one Em roughly ten pixels (16 x 62.5% = 10)*/
+  font-size: 62.5%;
+  letter-spacing: 1.5px;
+  margin: 0;
+  text-align: center;
+  background-color: #FFFFEA;
+  color: #FF5E5B;
+  font-weight: 10000;
+}
+
+.thetop{
+  background-color: #FFFFEA;
+  border: 100px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 40px;
+}
+
+ul > li {
+  list-style: none;
+}
+
+.card,
+.reset-btn {
+  cursor: pointer;
+}
+
+.btn {
+  border-radius: 1em;
+  border: none;
+  color: #fff;
+  box-shadow: 5px 2px 20px 0 #FFFFBE;
+  padding: 0.8em;
+}
+
+/*----------------------------------  
+Header
+------------------------------------*/
+
+h1 {
+  font-size: 3em;
+  font-weight: 700;
+  font-family: 'Courgette';
+  
+}
+
+h2 {
+  font-size: 1em;
+  font-weight: 700;
+  color:lightsalmon;
+  font-family:'Times New Roman', Times, serif;
+}
+
+p {
+  font-size: 1.5em;
+  font-weight: 700;
+  font-family: 'Courgette';
+}
+
+h3 {
+  font-weight: 700;
+}
+
+/*----------------------------------  
+Section - Score Panel
+------------------------------------*/
+
+.score-panel {
+  font-size: 1.5em;
+  margin: 15px;
+  font-weight: 1000;
+}
+
+.star-rating > li {
+  display: inline-block;
+  padding: 0.1em;
+}
+
+.moves-counter {
+  padding: 0.1em;
+}
+
+.reset-btn {
+  background: #FF5E5B;
+  margin: 15px;
+  font-family: 'Courgette';
+  font-weight: 400;
+}
+
+.timer-container {
+  border-radius: 0.5em;
+  color: #FF5E5B;
+  margin: 0.5em;
+  padding: 0.5em;
+}
+
+.timer {
+  font-size: 1em;
+}
+
+/*----------------------------------  
+Section - Modal
+------------------------------------*/
+
+/* Modal (background) */
+.modal {
+  /*Hidden by default */
+  display: none;
+  position: fixed;
+  z-index: 99;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  /* Fallback color */
+  background-color: rgb(46, 61, 73);
+  /* With opacity */
+  background-color: rgba(46, 61, 73, 0.6);
+}
+
+/* Modal Content/Box */
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  /* 5% from the top and centered */
+  margin: 0% auto;
+  border: 0.6em solid lightcoral;
+  padding: 2em;
+  width: 100%;
+}
+
+/* The Close Button */
+.close {
+  align-self: flex-end;
+  color: lightcoral;
+  font-size: 5em;
+}
+
+.close:hover,
+.close:focus {
+  color: lightcoral;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Modal Image*/
+.modal-img {
+  display: inline-block;
+  width: 28em;
+}
+
+p.stats {
+  font-weight: 600;
+}
+
+p.stats:last-child {
+  margin-bottom: 1em;
+}
+
+.play-again-btn {
+  background: lightcoral;
+  margin: 1em;
+  font-family:"Courgette";
+}
+
+/*----------------------------------  
+Deck of Cards
+------------------------------------*/
+/*Mobile first responsivness*/
+.deck {
+  background: linear-gradient(to bottom, lightyellow, #FFFC9A);
+  border-radius: 1.5em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  height: 40em;
+  margin-bottom: 6em;
+  padding: 0.5em;
+  width: 35em;
+}
+
+.deck,
+.card {
+  box-shadow: 5px 2px 20px 0 lightcoral;
+}
+
+.card {
+  background: #FF5E5B;
+  border-radius: 0.5em;
+  height: 8em;
+  width: 8em;
+  margin-top: 10px;
+}
+
+/*
+To disable the color highlight if and img is clicked
+https://stackoverflow.com/questions/21107439/disable-or-change-firefoxs-element-image-highlight-color
+*/
+img {
+  user-select: none;
+  width: 8em;
+}
+
+.deck img {
+  visibility: hidden;
+}
+
+.deck .card.flip {
+  background: #fff;
+  cursor: default;
+  transform: rotateY(180deg);
+  transition: transform 0.3s linear;
+  pointer-events: none;
+}
+
+.flip img {
+  background: #fff;
+  visibility: visible;
+}
+
+.deck .card.match {
+  background: #fff;
+  visibility: visible;
+  cursor: default;
+  animation: pulse 1s;
+}
+
+.match img {
+  background: #fff;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  80% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@media screen and (min-width: 550px) {
+
+  .h1{
+margin-top: 20px;
+  }
+  .score-panel {
+    margin-top: 10px;
+    font-size: 2em;
+  }
+
+  .deck  {
+    margin-top: 20px;
+    height: 50em;
+    padding: 1em;
+    width: 40em;
+  }
+
+  .card {
+    height: 8em;
+    width: 8em;
+  }
+
+  .deck img {
+    width: 8em;
+  }
+
+  .modal-content h2 {
+    font-size: 3em;
+    font-family: "Courgette";
+    margin-top: 30px;
+  }
+
+  .play-again-btn {
+    font-size: 1.8em;
+    font-family: 'Courgette';
+  }
+}
+
+/*---------------------------------- 
+Desktops
+------------------------------------*/
+@media screen and (min-width: 800px) {
+  h1 {
+    font-size: 6em;
+  }
+  p {
+    font-size: 3em;
+  }
+
+  .deck  {
+    height: 80em;
+    width: 70em;
+  }
+
+  .card {
+    height: 15em;
+    width: 15em;
+    margin: 5px;
+  }
+
+  .deck img {
+    width: 15em;
+  }
+
+  .reset-btn {
+    font-size: 1em;
+    margin: 20px;
+  }
+
+  .footer {
+    font-size: 2em;
+  }
+  
+  .modal-content h2 {
+    font-size: 5em;
+    font-family: "Courgette";
+  }
+
+  /* Modal Image*/
+  .modal-img {
+    width: 30em;
+  }
+
+  .play-again-btn {
+    font-size: 2em;
+  }
+}

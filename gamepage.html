@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>soulmate</title>
+    <link href="styles.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      #snow {
+        z-index: -1;
+        background-image: url("img/cheese.png");
+        height: 150%;
+        left: 0;
+        position: absolute;
+        top: 50;
+        width: 100%;
+        -webkit-animation: snow 1000s linear infinite;
+        -moz-animation: snow 1000s linear infinite;
+        -ms-animation: snow 1000s linear infinite;
+        animation: snow 1000s linear infinite;
+        -webkit-transform: translate3d(0, 0, 0);
+        -moz-transform: translate3d(0, 0, 0);
+        -ms-transform: translate3d(0, 0, 0);
+        -o-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+      }
+
+      @keyframes snow {
+        0% {
+          background-position: 0px 0px, 0px 0px, 0px 0px;
+        }
+        100% {
+          background-position: 50000px 50000px, 10000px 20000px,
+            -10000px 15000px;
+        }
+      }
+      @-moz-keyframes snow {
+        0% {
+          background-position: 0px 0px, 0px 0px, 0px 0px;
+        }
+        100% {
+          background-position: 50000px 50000px, 10000px 20000px,
+            -10000px 15000px;
+        }
+      }
+      @-webkit-keyframes snow {
+        0% {
+          background-position: 0px 0px, 0px 0px, 0px 0px;
+        }
+        100% {
+          background-position: 50000px 50000px, 10000px 20000px,
+            -10000px 15000px;
+        }
+      }
+      @-ms-keyframes snow {
+        0% {
+          background-position: 0px 0px, 0px 0px, 0px 0px;
+        }
+        100% {
+          background-position: 50000px 50000px, 10000px 20000px,
+            -10000px 15000px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <audio
+      autoplay="autoplay"
+      loop="loop"
+      controls="controls"
+      src="sweet.mp3"
+    ></audio>
+    <div id="snow"></div>
+    <div class="container">
+      <div class="thetop">
+        <header class="header"><h1>Find their Soulmates!</h1></header>
+      </div>
+      <section class="score-panel">
+        <ul id="star-rating" class="star-rating"></ul>
+        <div class="row">
+          <span class="moves-counter">0</span> Moves
+          <div class="timer-container">
+            <span class="timer"
+              ><i class="fa fa-hourglass-start"></i> Timer: 00:00</span
+            >
+          </div>
+          <div class="reset">
+            <button class="btn reset-btn">
+              Reset <i class="fa fa-repeat"></i>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <ul class="deck"></ul>
+    </div>
+
+    <!-- Modal -->
+    <section class="win-game-modal">
+      <div id="modal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>Congratulations!</h2>
+          <p></p>
+          <p></p>
+
+          <img class="modal-img" src="img/marali.jpg" alt="pic by marali" />
+          <p>You have won the game! Now the world knows they're soulmates!</p>
+          <button class="btn play-again-btn">Play Again?</button>
+        </div>
+      </div>
+    </section>
+  </body>
+  <script src="game.js"></script>
+</html>

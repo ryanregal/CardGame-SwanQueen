@@ -78,6 +78,7 @@ function removeCard() {
     deck.removeChild(deck.firstChild);
   }
 }
+
 function timer() {
   // Update the count every 1 second
   time = setInterval(function () {
@@ -102,27 +103,7 @@ function stopTime() {
 }
 
 function resetEverything() {
-  // Stop time, reset the minutes and seconds update the time inner HTML
-  stopTime();
-  timeStart = false;
-  seconds = 0;
-  minutes = 0;
-  timeCounter.innerHTML =
-    "<i class='fa fa-hourglass-start'></i>" + " Timer: 00:00";
-  // Reset star count and the add the class back to show stars again
-  star[1].firstElementChild.classList.add("fa-star");
-  star[2].firstElementChild.classList.add("fa-star");
-  starCount = 3;
-  // Reset moves count and reset its inner HTML
-  moves = 0;
-  movesCount.innerHTML = 0;
-  // Clear both arrays that hold the opened and matched cards
-  matched = [];
-  opened = [];
-  // Clear the deck
-  removeCard();
-  // Create a new deck
-  startGame();
+  location.reload();
 }
 
 function movesCounter() {
@@ -212,6 +193,13 @@ function AddStats() {
     // Add the new created <p> tag to the modal content
     stats.appendChild(statsElement);
   }
+  // Select all p tags with the class of stats and update the content
+  let p = stats.querySelectorAll("p.stats");
+  // Set the new <p> to have the content of stats (time, moves and star rating)
+  p[0].innerHTML =
+    "Time to complete: " + minutes + " Minutes and " + seconds + " Seconds";
+  p[1].innerHTML = "Moves Taken: " + moves;
+  p[2].innerHTML = "Your Star Rating is: " + starCount + " out of 3";
 }
 
 function displayModal() {

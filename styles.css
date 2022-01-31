@@ -73,7 +73,7 @@ h1 {
 }
 
 h2 {
-  font-size: 3em;
+  font-size: 3em !important;
   font-weight: 700;
   color:lightsalmon;
   font-family:'Courgette';

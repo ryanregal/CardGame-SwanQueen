@@ -73,16 +73,16 @@ h1 {
 }
 
 h2 {
-  font-size: 1em;
+  font-size: 3em;
   font-weight: 700;
   color:lightsalmon;
-  font-family:'Times New Roman', Times, serif;
+  font-family:'Courgette';
 }
 
 p {
   font-size: 1.5em;
   font-weight: 700;
-  font-family: 'Courgette';
+  font-family: 'Times New Roman', Times, serif;
 }
 
 h3 {
